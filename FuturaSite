@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[Nome da Marca] - Estruturas Pré-Moldadas</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Header e Navegação */
+        header {
+            background: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #0066cc;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #0066cc;
+        }
+
+        .contact-header {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .contact-header a {
+            color: #0066cc;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #0066cc 0%, #004a99 100%);
+            color: white;
+            padding: 80px 40px;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            opacity: 0.95;
+        }
+
+        .cta-button {
+            background: white;
+            color: #0066cc;
+            padding: 15px 40px;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px;
+        }
+
+        /* Secção de Apresentação */
+        .presentation {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+            margin: 60px 0;
+        }
+
+        .presentation-text h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #0066cc;
+        }
+
+        .presentation-text p {
+            margin-bottom: 15px;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .presentation-image {
+            background: #e0e0e0;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            font-size: 18px;
+            color: #999;
+            font-weight: 500;
+        }
+
+        /* Secção de Capacidade */
+        .capacity {
+            background: #f9f9f9;
+            padding: 60px 40px;
+            margin: 40px 0;
+            border-radius: 8px;
+        }
+
+        .capacity h2 {
+            font-size: 32px;
+            margin-bottom: 30px;
+            color: #0066cc;
+            text-align: center;
+        }
+
+        .capacity-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .capacity-card {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .capacity-card h3 {
+            color: #0066cc;
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+
+        .capacity-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Secção de Processo */
+        .process {
+            margin: 60px 0;
+        }
+
+        .process h2 {
+            font-size: 32px;
+            margin-bottom: 40px;
+            color: #0066cc;
+            text-align: center;
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 20px;
+        }
+
+        .process-step {
+            background: #f0f0f0;
+            padding: 25px;
+            border-radius: 8px;
+            text-align: center;
+            border-top: 4px solid #0066cc;
+        }
+
+        .step-number {
+            background: #0066cc;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .process-step h3 {
+            font-size: 16px;
+            color: #0066cc;
+            margin-bottom: 10px;
+        }
+
+        .process-step p {
+            font-size: 14px;
+            color: #666;
+        }
+
+        /* Secção de Projetos/Galeria */
+        .projects {
+            background: #f9f9f9;
+            padding: 60px 40px;
+            margin: 40px 0;
+            border-radius: 8px;
+        }
+
+        .projects h2 {
+            font-size: 32px;
+            margin-bottom: 40px;
+            color: #0066cc;
+            text-align: center;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .project-image {
+            background: #d3d3d3;
+            height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        .project-info {
+            padding: 20px;
+        }
+
+        .project-info h3 {
+            color: #0066cc;
+            margin-bottom: 10px;
+        }
+
+        .project-info p {
+            color: #666;
+            font-size: 14px;
+        }
+
+        /* Secção de Vantagens */
+        .advantages {
+            margin: 60px 0;
+        }
+
+        .advantages h2 {
+            font-size: 32px;
+            margin-bottom: 40px;
+            color: #0066cc;
+            text-align: center;
+        }
+
+        .advantages-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        .advantage-item {
+            display: flex;
+            gap: 20px;
+            padding: 20px;
+            background: #f9f9f9;
+            border-radius: 8px;
+            border-left: 4px solid #0066cc;
+        }
+
+        .advantage-item h3 {
+            color: #0066cc;
+            margin-bottom: 10px;
+        }
+
+        .advantage-item p {
+            color: #666;
+            font-size: 14px;
+        }
+
+        /* Secção de Contato */
+        .contact-section {
+            background: linear-gradient(135deg, #0066cc 0%, #004a99 100%);
+            color: white;
+            padding: 60px 40px;
+            margin: 40px 0;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .contact-section h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        .contact-section p {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            margin: 30px 0;
+        }
+
+        .contact-info-item {
+            text-align: center;
+        }
+
+        .contact-info-item label {
+            display: block;
+            font-size: 14px;
+            opacity: 0.9;
+            margin-bottom: 5px;
+        }
+
+        .contact-info-item a {
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .contact-info-item a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+
+        footer p {
+            margin-bottom: 10px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 20px 0;
+        }
+
+        .footer-links a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+
+        /* FAQ Section */
+        .faq {
+            margin: 60px 0;
+        }
+
+        .faq h2 {
+            font-size: 32px;
+            margin-bottom: 40px;
+            color: #0066cc;
+            text-align: center;
+        }
+
+        .faq-item {
+            background: #f9f9f9;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #0066cc;
+        }
+
+        .faq-item h3 {
+            color: #0066cc;
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
+
+        .faq-item p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Responsivo */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .presentation {
+                grid-template-columns: 1fr;
+            }
+
+            .capacity-grid,
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .process-steps {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .advantages-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .presentation-image {
+                height: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header/Navegação -->
+    <header>
+        <nav>
+            <div class="logo">[Logo da Marca]</div>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#servicos">Serviços</a></li>
+                <li><a href="#projetos">Projetos</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+            <div class="contact-header">
+                <span>[Número de Contato]</span>
+                <a href="mailto:[Endereço de E-mail]">Solicitar Orçamento</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Soluções Completas em Estruturas Pré-Moldadas</h1>
+            <p>Conte com a segurança e agilidade das nossas soluções para o seu projeto. Somos especialistas com experiência comprovada no setor.</p>
+            <button class="cta-button">Solicitar Orçamento</button>
+        </div>
+    </section>
+
+    <!-- Main Container -->
+    <main class="container">
+        <!-- Secção de Apresentação -->
+        <section class="presentation" id="sobre">
+            <div class="presentation-text">
+                <h2>Sobre [Nome da Marca]</h2>
+                <p>Somos uma empresa especializada em soluções de estruturas pré-moldadas, com experiência consolidada no mercado. Nossa fábrica própria está equipada com tecnologia de ponta e uma equipe de profissionais altamente qualificados.</p>
+                <p>Independente do tamanho e complexidade do seu projeto, nossa estrutura é robusta e nossa equipe está preparada para atender com excelência. Oferecemos desde pequenos projetos até estruturas complexas e de grande porte.</p>
+                <p>Somos movidos por profissionais especialistas em desenvolver soluções personalizadas, sempre considerando a garantia de um trabalho eficiente, seguro e dentro dos prazos estabelecidos.</p>
+            </div>
+            <div class="presentation-image">[Imagem Placeholder - Fábrica/Instalações]</div>
+        </section>
+
+        <!-- Secção de Capacidade -->
+        <section class="capacity">
+            <h2>Capacidade Produtiva e Expertise</h2>
+            <p style="text-align: center; margin-bottom: 40px; color: #666;">Nossa infraestrutura está preparada para atender projetos de qualquer complexidade com máxima eficiência.</p>
+            
+            <div class="capacity-grid">
+                <div class="capacity-card">
+                    <h3>Fábrica Moderna</h3>
+                    <p>Contamos com uma fábrica própria de [tamanho em m²], equipada com maquinário de ponta e processos rastreáveis e seguros.</p>
+                </div>
+                <div class="capacity-card">
+                    <h3>Controle de Qualidade</h3>
+                    <p>Rigoroso controle de qualidade em todas as etapas de produção, garantindo que cada peça atenda aos mais altos padrões de excelência.</p>
+                </div>
+                <div class="capacity-card">
+                    <h3>Equipe Especializada</h3>
+                    <p>Profissionais em constante atualização, com expertise comprovada em estruturas pré-moldadas e projetos de grande complexidade.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Secção de Processo -->
+        <section class="process">
+            <h2>Nosso Processo Produtivo</h2>
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h3>Orçamento</h3>
+                    <p>Elaboração de orçamento personalizado com análise detalhada do projeto.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h3>Projeto 3D</h3>
+                    <p>Apresentação do projeto em 3D com orçamento assertivo e detalhado.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h3>Projeto Executivo</h3>
+                    <p>Projeto executivo com detalhamento completo de cada peça da estrutura.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h3>Fabricação</h3>
+                    <p>Fabricação exclusiva das peças conforme demanda, com qualidade garantida.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">5</div>
+                    <h3>Montagem</h3>
+                    <p>Montagem e execução da obra com rapidez, segurança e eficiência.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Secção de Projetos -->
+        <section class="projects" id="projetos">
+            <h2>Nossos Projetos</h2>
+            <div class="project-grid">
+                <div class="project-card">
+                    <div class="project-image">[Imagem Placeholder - Projeto 1]</div>
+                    <div class="project-info">
+                        <h3>Projeto Comercial</h3>
+                        <p>Estrutura comercial complexa com múltiplos pavimentos e pilares de grande altura, demonstrando nossa expertise em projetos de grande porte.</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">[Imagem Placeholder - Projeto 2]</div>
+                    <div class="project-info">
+                        <h3>Obra Agroindustrial</h3>
+                        <p>Estrutura especial para área agroindustrial com adaptações específicas para equipamentos e funcionalidades especiais.</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">[Imagem Placeholder - Projeto 3]</div>
+                    <div class="project-info">
+                        <h3>Projeto Residencial</h3>
+                        <p>Estrutura pré-moldada para complexo residencial, combinando segurança, eficiência e arquitetura diferenciada.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Secção de Vantagens -->
+        <section class="advantages">
+            <h2>Por Que Escolher [Nome da Marca]</h2>
+            <div class="advantages-grid">
+                <div class="advantage-item">
+                    <div style="flex: 1;">
+                        <h3>Engenharia Especializada</h3>
+                        <p>Nossa equipe de engenharia realiza estudos completos e soluções personalizadas para cada projeto, desde o pré até o pós-obra.</p>
+                    </div>
+                </div>
+                <div class="advantage-item">
+                    <div style="flex: 1;">
+                        <h3>Tecnologia Automatizada</h3>
+                        <p>Contamos com central própria 100% automatizada, permitindo monitoramento remoto durante produção e máxima eficiência.</p>
+                    </div>
+                </div>
+                <div class="advantage-item">
+                    <div style="flex: 1;">
+                        <h3>Cumprimento de Prazos</h3>
+                        <p>Todas as etapas do nosso processo cumprem rigorosamente os prazos informados, garantindo segurança na entrega.</p>
+                    </div>
+                </div>
+                <div class="advantage-item">
+                    <div style="flex: 1;">
+                        <h3>Mão de Obra Própria</h3>
+                        <p>Nossa equipe de montagem possui ampla experiência, sendo capacitada para operar equipamentos de içamento e transporte com segurança.</p>
+                    </div>
+                </div>
+                <div class="advantage-item">
+                    <div style="flex: 1;">
+                        <h3>Sem Resíduos</h3>
+                        <p>Processo de construção eficiente que reduz significativamente a geração de resíduos na obra, beneficiando o meio ambiente.</p>
+                    </div>
+                </div>
+                <div class="advantage-item">
+                    <div style="flex: 1;">
+                        <h3>Rastreabilidade Total</h3>
+                        <p>Cada peça produzida é rastreável e inspecionada, garantindo qualidade e segurança em todos os nossos produtos.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Secção de FAQ -->
+        <section class="faq">
+            <h2>Perguntas Frequentes</h2>
+            <div class="faq-item">
+                <h3>Qual é a localização da fábrica?</h3>
+                <p>Nossa fábrica está localizada em [Endereço da Fábrica], em um parque industrial estratégico com fácil acesso e distribuição para diversos pontos do país.</p>
+            </div>
+            <div class="faq-item">
+                <h3>Como funciona o processo de orçamento?</h3>
+                <p>O processo começa com a análise do projeto, onde preparamos um orçamento detalhado. Em seguida, apresentamos uma proposta 3D e, se aprovado, desenvolvemos o projeto executivo completo.</p>
+            </div>
+            <div class="faq-item">
+                <h3>Qual é o prazo de execução?</h3>
+                <p>O prazo depende da complexidade e tamanho do projeto. Realizamos um cronograma detalhado no início e nos comprometemos rigorosamente com os prazos estabelecidos.</p>
+            </div>
+            <div class="faq-item">
+                <h3>Vocês realizam projetos em todo o país?</h3>
+                <p>Sim, possuímos capacidade de atendimento em diferentes regiões do país. Entre em contato para discutir a viabilidade do seu projeto específico.</p>
+            </div>
+            <div class="faq-item">
+                <h3>As estruturas podem receber acabamento especial?</h3>
+                <p>Sim, o acabamento nas placas pré-fabricadas pode ser feito com qualquer tipo de material, desde pintura e textura até revestimento cerâmico.</p>
+            </div>
+            <div class="faq-item">
+                <h3>Vocês auxiliam no projeto arquitetônico?</h3>
+                <p>Sim, podemos desenvolver o projeto arquitetônico em conjunto com você e, se necessário, realizar a tramitação do alvará junto à prefeitura.</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Secção de Contato -->
+    <section class="contact-section" id="contato">
+        <h2>Solicite Seu Orçamento</h2>
+        <p>Entre em contato conosco e deixe que nossa equipe especializada desenvolva a melhor solução para seu projeto.</p>
+        
+        <div class="contact-info">
+            <div class="contact-info-item">
+                <label>Telefone Comercial:</label>
+                <a href="tel:[Número de Contato]">[Número de Contato]</a>
+            </div>
+            <div class="contact-info-item">
+                <label>WhatsApp/Celular:</label>
+                <a href="https://wa.me/[Número para WhatsApp]">[Número de Contato WhatsApp]</a>
+            </div>
+            <div class="contact-info-item">
+                <label>E-mail:</label>
+                <a href="mailto:[Endereço de E-mail]">[Endereço de E-mail]</a>
+            </div>
+        </div>
+
+        <p style="margin-top: 30px; font-size: 14px; opacity: 0.9;">Horário de Atendimento: Segunda a Sexta, 08h00 às 12h00 e 13h30 às 18h00</p>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 [Nome da Marca]. Todos os direitos reservados.</p>
+        <p>Especialista em Estruturas Pré-Moldadas</p>
+        
+        <div class="footer-links">
+            <a href="#home">Home</a>
+            <a href="#sobre">Sobre</a>
+            <a href="#servicos">Serviços</a>
+            <a href="#projetos">Projetos</a>
+            <a href="#contato">Contato</a>
+            <a href="#politica">Política de Privacidade</a>
+        </div>
+
+        <p style="font-size: 12px; margin-top: 20px; opacity: 0.7;">
+            [Endereço da Empresa] | [Localização da Fábrica] | [Número de Inscrição Estadual] | [CNPJ]
+        </p>
+    </footer>
+
+</body>
+</html>
